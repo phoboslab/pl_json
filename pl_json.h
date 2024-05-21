@@ -199,6 +199,8 @@ json_t *json_value_for_key(json_t *v, char *key);
 #include <string.h>
 #include <stdlib.h>
 
+#define JSON_MAX_DEPTH 256
+
 typedef struct {
 	json_error_t error;
 	char *data;
@@ -213,8 +215,6 @@ typedef struct {
 	unsigned int parsed_data_len;
 } json_parser_t;
 
-#define JSON_MAX_DEPTH 256
-
 enum {
 	JSON_C_NULL  = (1<<0),
 	JSON_C_SPACE = (1<<1),
@@ -222,7 +222,7 @@ enum {
 	JSON_C_NUM   = (1<<3),
 	JSON_C_EXP   = (1<<5),
 	JSON_C_PRIM  = (1<<6),
-	JSON_C_OBJ  = (1<<7)
+	JSON_C_OBJ   = (1<<7)
 };
 static const unsigned char json_char_map[256] = {
 	['\0'] = JSON_C_NULL,  ['\t'] = JSON_C_SPACE, ['\n'] = JSON_C_LF,
