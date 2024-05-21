@@ -16,8 +16,8 @@ such as '\n', '\r', or '\\' are handled, but unicode escape sequences (\uffff)
 are not - these will be replaced by a single '?' character. So use JSON that
 has utf8 strings instead of unicode escape sequences.
 
-The caller of is responsible for memory allocation. To facilitate memory 
-efficient use, the parsing is split into two steps: 
+The caller is responsible for memory allocation. To facilitate memory efficient 
+use, the parsing is split into two steps: 
 	1) tokenization into a temporary token buffer
 	2) parsing of the tokens into the final structure
 
